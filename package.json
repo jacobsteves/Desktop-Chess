@@ -1,0 +1,22 @@
+{
+  "name": "Desktop-Chess",
+  "version": "1.0.0",
+  "description": "A minimal Electron application allowing users to play chess.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/jacobsteves/Desktop-Chess",
+  "keywords": [
+    "Chess",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Jacob Steves",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  }
+}

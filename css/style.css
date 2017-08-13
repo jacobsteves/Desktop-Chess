@@ -1,0 +1,86 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+ol, ul {
+  padding-left: 20px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square-even, .square-odd {
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+.square-even {
+  background: #D68910;
+}
+
+.square-odd {
+  background: #FAD7A0;
+}
+
+.square-even:focus, .square-odd:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  width: 130px;
+  height: 254px;
+  margin-left: 20px;
+  padding: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #111;
+  color: #818181;
+}
+
+.move-status {
+  text-align: center;
+}
+
+.move-entry {
+  list-style-type: none;
+}
+
+.move-number {
+  text-decoration: none;
+  color: #818181;
+  font-weight: 400;
+  transition: 0.3s;
+}
+
+.move-number:hover {
+  color: #f1f1f1;
+}
+
+.icon {
+  height: 1.3em;
+}
