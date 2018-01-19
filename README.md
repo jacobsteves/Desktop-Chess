@@ -6,7 +6,11 @@ A desktop application built on [Electron](https://electron.atom.io/) allowing th
 
 ## Installation
 #### Locally
+
 `git clone https://github.com/jacobsteves/Desktop-Chess`
+
 `cd Desktop-Chess`
+
 `npm install`
+
 `npm start`
