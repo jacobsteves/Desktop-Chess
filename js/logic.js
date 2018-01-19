@@ -405,6 +405,7 @@ function possibleMoves(props) {
   let piece = gameBoard[i];
   lastPiece = piece;
   lastPos = i;
+  changingPos = false;
 
   // Bishop / Queen Variables (diagonals)
   let leftMoves = i % 8;

@@ -11,6 +11,7 @@ var win = null;
 var gameBoard = populateBoard();
 var tempBoard = gameBoard;
 var curPlayer = 'Black';
+var changingPos = false;
 
 //next step: insert gameBoard so that it is passed down through props. This will allow the moves to display once history is clicked.
 //     currently, since gameBoard is a global var, it overrides the history (as nothing new gets passed down when history changes);
@@ -176,8 +177,6 @@ var Game = function (_React$Component2) {
     _this3.state = {
       history: [{
         squares: gameBoard,
-      }],
-      playerHistory: [{
         curPlayer: curPlayer,
       }],
       stepNumber: 0,
@@ -188,24 +187,21 @@ var Game = function (_React$Component2) {
 
   Game.prototype.handleClick = function handleClick(i) {
     var history = this.state.history.slice(0, this.state.stepNumber + 1);
-    var playerHistory = this.state.playerHistory.slice(0, this.state.stepNumber + 1);
     var current = history[history.length - 1];
     var squares = gameBoard.slice();
 
+    var newHistory = changingPos ? history.concat([{ squares: squares, curPlayer: curPlayer }]) : this.state.history;
+
     this.setState({
-      stepNumber: history.length,
-      history: history.concat([{
-        squares: squares // This concatnates the current board to the history
-      }]),
-      playerHistory: playerHistory.concat([{
-        curPlayer: curPlayer // This concatnates the current player to the history
-      }]),
+      stepNumber: newHistory.length - 1,
+      history: newHistory,
       xIsNext: !this.state.xIsNext
     });
-}
+  }
 
-  Game.prototype.jumpTo = function jumpTo(step, curboard) {
+  Game.prototype.jumpTo = function jumpTo(step, curboard, player) {
     gameBoard = curboard;
+    curPlayer = player;
     if(step == 0){
       gameBoard = populateBoard();
     }
@@ -219,7 +215,6 @@ var Game = function (_React$Component2) {
     var _this4 = this;
 
     var history = this.state.history;
-    var playerHistory = this.state.playerHistory;
     var current = history[this.state.stepNumber];
 
     var status = undefined;
@@ -239,7 +234,7 @@ var Game = function (_React$Component2) {
           React.createElement(
             "a",
             { className: "move-number", href: "#", onClick: function onClick() {
-                return _this4.jumpTo(move, history[move].squares);
+                return _this4.jumpTo(move, history[move].squares, history[move].curPlayer);
               } },
             desc
           )

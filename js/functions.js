@@ -27,6 +27,7 @@ function changePos(props) {
   gameBoard[i] = lastPiece;
   gameBoard[lastPos] = null;
   nextPlayer = 1;
+  changingPos = true;
 
   return lastPiece;
 }
